@@ -1,13 +1,24 @@
 /* #region page */
-body {
-  margin: 0;
-}
-
-html{
+.page{
   font-family: Poppins, sans-serif;
   font-size: 24px;
   line-height: 140%;
   color: #fff;
+
+  scroll-behavior: smooth;
+}
+
+.page__body {
+  margin: 0;
+}
+
+.page__menu{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* #endregion */
@@ -15,7 +26,6 @@ html{
 /* #region header */
 .header {
   box-sizing: border-box;
-  padding: 24px 20px 88px;
   height: 100vh;
   background-image: url(../images/bicycle.png);
   background-size: cover;
@@ -26,17 +36,6 @@ html{
   justify-content: space-between;
 }
 
-.header__top{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header__icons{
-  display: flex;
-  gap: 24px;
-}
-
 .header__title {
   text-align: center;
   font-style: Bold;
@@ -44,6 +43,94 @@ html{
   font-size: 36px;
   line-height: 100%;
   letter-spacing: -1.5px;
+  padding: 0 20px 88px;
+}
+
+/* #endregion */
+
+/* #region menu */
+.top-bar{
+  padding: 24px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar__icons{
+  display: flex;
+  gap: 24px;
+}
+
+.top-bar__logo{
+  display: flex;
+}
+
+.menu{
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #C2C2C2;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.menu__top{
+  margin-bottom: 24px;
+}
+
+.menu:target{
+  pointer-events: all;
+  opacity: 1;
+}
+
+.menu__phone-number{
+  display: block;
+  color: #1D1D1D;
+  font-size: 16px;
+  line-height: 27px;
+  text-decoration: none;
+}
+
+.mebu__book-a-test-ride{
+  display: block;
+  width: fit-content;
+
+  margin-top: 16px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #1D1D1D;
+
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  color: #1D1D1D;
+  text-decoration: none;
+}
+
+.menu__nav{
+  margin-bottom: 40px;
+}
+
+.menu__content{
+  padding-inline: 20px;
+}
+
+/* #endregion */
+
+/* #region nav */
+.nav__link{
+  color: #1D1D1D;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: 2px;
+}
+
+.nav__list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 /* #endregion */
@@ -61,6 +148,10 @@ html{
 
 .icon--menu {
   background-image: url(../images/Icon-Burger-menu.png);
+}
+
+.icon--close{
+  background-image: url(../images/Icon-Close.png);
 }
 
 /* #endregion */
