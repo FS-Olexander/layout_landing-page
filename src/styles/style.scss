@@ -3,6 +3,8 @@
 
 .button {
   &__post {
+    cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +52,10 @@
   &__body {
     min-width: 320px;
     margin: 0;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
   }
 
   &__menu {
@@ -292,7 +298,7 @@
   }
 
   &--phone {
-    cursor: default;
+    cursor: pointer;
     background-image: url(../images/Icon-Phone-call.png);
 
     &:hover {
@@ -303,14 +309,14 @@
   }
 
   &--menu {
-    cursor: default;
+    cursor: pointer;
     background-image: url(../images/Icon-Burger-menu.png);
 
     @include hover(background-image, url(../images/Icon-Burger-menu-hover.png));
   }
 
   &--close {
-    cursor: default;
+    cursor: pointer;
     background-image: url(../images/Icon-Close.png);
   }
 }
@@ -393,8 +399,14 @@
 /* #region product */
 .product {
   &__photo {
+    cursor: pointer;
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 }
 
@@ -475,7 +487,10 @@
   }
 
   &__link {
+    cursor: pointer;
     position: relative;
+    overflow: hidden;
+
     &--wide {
       @include on-tablet {
         grid-column: span 4;
@@ -507,6 +522,12 @@
     margin-bottom: 16px;
 
     object-fit: cover;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   &__title {
@@ -553,6 +574,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 14px 16px;
+    border: 1px solid transparent;
     border-radius: 16px;
 
     font-family: Poppins, sans-serif;
@@ -560,6 +582,7 @@
     line-height: 20px;
     color: #7e7e83;
 
+    appearance: none;
     background-color: #fff;
     outline: none;
 
@@ -578,9 +601,23 @@
     &:focus {
       box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.64);
     }
+
+    &:autofill {
+      color: #292929;
+      box-shadow: 0 0 0 1000px #fff inset;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px #fff inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: #292929;
+    }
   }
 
-  &__textarea {
+    &__textarea {
     height: 148px;
 
     &:hover {
@@ -589,6 +626,20 @@
 
     &:focus {
       box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.64);
+    }
+
+  &:autofill {
+      color: #292929;
+      box-shadow: 0 0 0 1000px #fff inset;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px #fff inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: #292929;
     }
   }
 
@@ -618,5 +669,3 @@
     color: #fff;
   }
 }
-
-/* #endregion */
